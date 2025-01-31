@@ -35,7 +35,7 @@ const Login_Form = () => {
       await signIn('nodemailer', {
         email: values.email,
         redirect: false,
-        callbackUrl: '/',
+      
       });
       toast({
         title: 'Check your email for the magic link.',

@@ -22,7 +22,7 @@ const LoginPage = async() => {
       <form
         action={async () => {
           'use server';
-          await signIn('github', { callbackUrl: '/' });
+          await signIn('github');
         }}>
         <Button variant='outline' className='w-full flex items-center justify-center text-black' type='submit'>
           <IoLogoGithub className='mr-2 h-5 w-5' />
