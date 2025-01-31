@@ -8,9 +8,12 @@ import { auth, signIn } from '@/auth';
 
 const LoginPage = async() => {
      const session = await auth()
-    if (session?.user){
-      redirect("/")
-
+     if (session?.user) {
+      const redirectUrl = process.env.NODE_ENV === 'production'
+        ? process.env.NEXT_PUBLIC_PRODUCTION_REDIRECT_URL!
+        : process.env.NEXT_PUBLIC_DEVELOPMENT_REDIRECT_URL!;
+    
+      redirect(redirectUrl);
     }
   return (
     <div className='size-96 mx-auto p-2 flex flex-col items-center gap-3 justify-center'>
