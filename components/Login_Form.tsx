@@ -40,10 +40,11 @@ const Login_Form = () => {
       toast({
         title: 'Check your email for the magic link.',
       });
-    } catch () {
+    } catch (error) {
       toast({
         title: 'Failed to send the magic link. Please try again.',
       });
+      console.log(error)
     }
   };
 
