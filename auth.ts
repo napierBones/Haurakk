@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import { db } from './db/db';
-import GitHub from '@auth/core/providers/github';
+import GitHub from "next-auth/providers/github"
 import Nodemailer from '@auth/core/providers/nodemailer';
 import { createTransport } from 'nodemailer';
 
@@ -11,10 +11,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: '/login',
   },
   providers: [
-    GitHub({
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
-    }),
+    GitHub,
     Nodemailer({
       from: process.env.EMAIL_FROM as string,
       server: {

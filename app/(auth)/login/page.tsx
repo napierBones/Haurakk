@@ -22,7 +22,7 @@ const LoginPage = async() => {
       <Login_Form />
 
       {/* GitHub Login Button */}
-      <form
+      <form className='w-full'
         action={async () => {
           'use server';
           await signIn('github');
